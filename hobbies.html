@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<!-- Halloween Ex. 3, Specification 1:
+Create the home page from the index.html file that's
+in the root folder for the project. This file includes just the basic HTML elements. -->
+
+<head>
+    <meta charset="utf-8" />
+
+    <!-- Halloween Ex8, Tablet portrait Spec 1:
+        add meta element to control the viewport for media queries -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Zach's Portfolio</title>
+    <!-- Halloween Ex. 4, Specification 8:
+    Link the main style sheet that you just created (see styles/main.css)
+    as well as the normalize stylesheet (styles/normalize.css) -->
+    <link rel="stylesheet" href="styles/normalize.css">
+    <!-- Halloween Ex 3, Spec 2, part 1: use main_rwd.css instead of main.css -->
+    <link rel="stylesheet" href="styles/main_rwd.css">
+    <!-- Start of Halloween Ex 8 phone landscape spec 2,
+        (see main_rwd.css for corresponding changes in the
+        stylesheet for this media query) -->
+    <link rel="stylesheet" href="styles/slicknav.css">
+    <!-- load jquery library from cdn (content delivery network) -->
+    <script
+            src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <!-- loads the slicknav jquery java plugin -->
+    <script src="js/jquery.slicknav.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready( function() {
+            $('#nav_menu').slicknav( {prependTo:"#mobile_menu"} );
+        });
+    </script>
+    <!-- End of Halloween Ex 8, phone landscape spec 2 -->
+
+</head>
+
+<body>
+<!-- Halloween Ex. 3, Specification 2, part1: Add a header -->
+<header>
+    <!-- Halloween Ex. 3, Specification 3:
+    Add an image ("pumpkin.gif") and two levels of headings
+    (h2 and h3) to header. Use the test found in index.txt
+    for the text content in the header and the other areas
+    of the page -->
+    <h2>All about me</h2>
+    <!-- added h2 element heading to "the halloween store" -->
+    <h3>Including my hobbies, school achievements and more!</h3>
+</header>
+
+<nav id="mobile_menu"></nav>  <!-- this is part of Halloween Ex 8 phone landscape spec 2 -->
+
+<nav id="nav_menu">
+    <ul>
+        <li><a href="index.html" >Home</a></li>
+        <li><a href="educational_experience.html">Educational Experience</a></li>
+        <li><a href="work_experience.html" >Work experience</a></li>
+        <li><a href="hobbies.html" class="current">Hobbies</a></li>
+        <li><a href="family.html">Family</a></li>
+    </ul>
+</nav>
+
+
+
+<!-- Halloween Ex. 3, Specification 4, part 2: Add a main element -->
+<main>
+
+
+
+    <section>
+        <h1>Welcome to my site.<br /> Here is some information about me.</h1>
+        <p>
+            I have been very active all my life in various sports activities and hobbies. In the winter my brother and I routinely go to the ski resorts in Boone, NC.
+        </p>
+        <p>
+            <img src="images/app1.jpg" alt="Appalachian Ski Mtn" title="Appalachian Ski Mtn" width="250">
+        </p>
+        <p>
+            During the fall I enjoy heading down to the river and catching some trout while wading in the water with my friends.
+        </p>
+        <p>
+            <img src="images/fly_fishing.jpg" alt="Fly Fishing" title="Fly FIshing" width="250">
+        </p>
+        <p>
+            During the last 4 summers I have traveled to
+            Atlanta, Georgia to play and compete in travel baseball tournaments.
+        </p>
+        <p>
+            <img src="images/perfect_game1.jpg" alt="Perfect Game" title="Perfect Game" width="250">
+        </p>
+    </section>
+
+    <!-- for mobile devices, move the sidebar to the bottom of page -->
+    <!-- start of halloween ex 6, spec 1, part 1 -->
+    <aside>
+        <nav id="nav_list">
+            <!-- Halloween Ex. 3, Specification 5:
+                    Code the product categories as an unordered list with links to
+                    other pages. Becasue these pages dont exist, you can name
+                    them however you like, but assume that these product pages
+                    will be stored in the products folder. -->
+
+            <ul>
+                <li><a href="hobbies.html">Skiing</a></li>
+                <li><a href="educational_experience.html">Beta Club</a></li>
+                <li><a href="educational_experience.html">USCB</a></li>
+                <li><a href="hobbies.html">Baseball</a></li>
+                <!-- created links for each word in the unordered list -->
+            </ul>
+        </nav>
+    </aside>
+</main>
+
+<!-- Halloween Ex. 3, Specification 2, part 3: Add a footer -->
+<footer>
+    <p id="demo"></p>
+
+    <script>
+        document.getElementById("demo").innerHTML = Date(12/13/17);
+    </script>
+    <p>
+        &copy;  Copyright 2017 Zachary Hall
+    </p>
+    <!-- inserted a character entity to display the copyright sign on the webpage -->
+</footer>
+</body>
+</html>
+

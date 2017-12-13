@@ -1,0 +1,255 @@
+/*
+ * Halloween Ex. 5, Specification 2
+ */
+html {
+    /* background-color: silver; */
+}
+
+/* Halloween Ex. 5, Specification 1: Format the body of the page
+so its 800px wide, with a white background, black border, shadow, and is centered
+in the browser window.
+ */
+body {
+    /* Halloween Ex. 4, Specification 2:
+    * Set the default font for the document to a sans-serif
+    * font (such as Verdana, Arial, or Helvetica, but others
+    * may be used as well.)
+    */
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    width: 880px;
+    background-color: white;
+    margin: 0 auto;
+    padding: 0;
+    border: 3px solid black;
+    box-shadow: 0 9px 18px 9px;
+}
+/*
+ "reset" the margins and padding for headings and paragraphs
+ this makes it easier for us to control margin and padding
+ for such elements later on in this css file, as part of the
+ "miscellaneous adjustments" made in Ex. 5, Specification 6
+ */
+h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    background-image: -webkit-linear-gradient(45deg, white 0%, silver 75%, black 100%);
+    background-image: -moz-linear-gradient(45deg, white 0%, silver 75%, black 100%);
+    background-image: -o-linear-gradient(45deg, white 0%, silver 75%, black 100%);
+    background-image: linear-gradient(45deg, white 0%, silver 75%, black 100%);
+    padding: 15px;
+    /* Halloween Ex. 4, Specification 3, part 1 */
+    /* border-bottom: 2px solid black; */ /* removed per Ex. 7, not needed because of horizontal nav menu */
+}
+
+header img {
+    /* Halloween Ex. 4, Specification 4, part 1a:
+    Float the image to the left
+     */
+    float: left;
+    padding-right: 15px;
+}
+
+header h2 {
+    /* Halloween Ex. 4, Specification 3 part 1:
+    adjust font sizes for all headings
+     */
+    font-size: 230%;
+    /* Halloween Ex. 4, Specification 4, part 1b:
+    Indent both headings (here, indent the h2)
+     */
+    /* (Note: this style was removed after adding a
+    padding-right: 15px; to the img element
+    that is contained in the header)
+     */
+    /* text-indent: 25px; */
+
+    /* Halloween Ex. 4, Specification 4, part 2:
+    Change the color of the first heading (here, the h2)
+    to orange, then italicize it, and add a black shadow
+     */
+    /* font-style: italic;
+    color: orange;
+    text-shadow: 2px 2px 2px black;
+     */
+    /* Halloween Ex. 5, Step 4: Remove italics, color, and shadow */
+}
+header h3 {
+    /* Halloween Ex. 4, Specification 3, part 1:
+    Adjust font sizes for all headings
+     */
+    font-size: 125%;
+    /* Halloween Ex. 4, Specification4, part 1c:
+    Indent both headings (here, indent the h3
+     */
+    /* text-indent: 25px; */
+    padding-bottom: 15px;
+}
+/* Main */
+/* For ch. 6 most of the styles for main were
+moved to section -- see below
+ */
+
+/* styles for the nav menu */
+/*
+ Start of CSS styles to accompany
+ Halloween Ex 7, spec 1
+ */
+
+/* The styles for the operation of the 2-tier navigation menu */
+#nav_menu ul {
+    list-style: none;
+    position: relative;    /* So the first submenu can be positioned within the main menu */
+}
+#nav_menu ul li {
+    float: left;
+}
+#nav_menu ul ul {
+    display: none;         /* Don't display submenu until hover of the li element */
+    position: absolute;
+    top: 100%;             /* Position the submenu at the bottom of the main menu */
+}
+#nav_menu ul ul li {
+    float: none;           /* Display the submenus vertically */
+}
+#nav_menu ul li:hover > ul {
+    display: block;        /* Display the submenu on hover of the li element */
+}
+#nav_menu > ul::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* The styles for the formatting of the 2-tier navigation menu */
+#nav_menu ul {
+    margin: 0;
+    padding: 0;
+}
+#nav_menu ul li a {
+    text-align: center;
+    display: block;
+    width: 160px;
+    padding: 0.7em 0;
+    text-decoration: none;
+    background-color: black;
+    color: white;
+}
+#nav_menu ul li.lastitem a {
+    width: 160px;               /* leave this here just in case you make this a 3 tier menu */
+}
+#nav_menu ul li a.current {
+    color: black; /* per Halloween ex 7, spec 1 cont'd */
+}
+#nav_menu ul li a:hover, #nav_menu ul li a:focus {
+    background-color: gray;
+}
+
+
+/*
+ End of CSS styles to accompany
+ Halloween Ex 7, Spec 1
+ */
+
+/* styles for the Sidebar */
+/* Halloween Ex. 5, Spec 2, step 3
+*/
+aside {
+    float: left;
+    width: 160px;
+    padding: 20px 0; /* Halloween Ex. 6 Spec 2 Cont'd */
+}
+
+
+
+/* start of Halloween ex 7, spec 2 */
+#nav_list ul {
+    list-styles: none;
+    padding-left: 1.5em; /* replaces 40px of left padding that chrome adds automatically */
+}
+#nav_list ul li {
+    width: 110px;
+    border: 2px solid black;
+    margin-bottom: 0.5em; /* TRBL */
+}
+#nav_list ul li a {
+    display: block; /* this makes the entire box for each link clickable */
+    font-weight: bold;
+    background-color: silver;
+    text-decoration: none;
+    padding: 0.5em;
+    color: black;
+}
+/* end of halloween ex7, spec 2 */
+
+/* styles for the section */
+/* Hallowe Ex. 6, Spec 2:
+adjust the margin and padding for the section as necessary
+ */
+section {
+    width: 590px;
+    float: right;
+    padding: 20px 25px 25px 25px; /* copied from misc. adjustment, per Ex. 5, Spec 6 */
+
+}
+secion h1 {
+    /* Halloween Ex. 4, Spec 3, Part 1:
+    adjust font sizes for all headings
+     */
+    font-size: 140%;
+    margin-bottom: 0.5em;
+}
+/* Halloween Ex. 4, Spec 3, part 2:
+in addition, format the first letterr of the first heading in the main
+section (here, h1) so its larger than the other letters in the heading
+ */
+section h1:first-letter {
+    font-size: 240%;
+}
+section h2 {
+    /* Halloween Ex. 4, Spec 3, part 1:
+    adjust font sizes for all headings
+     */
+    font-size: 125%;
+    margin: 0.8em 0 0.5em 0; /* misc adjustment, per ex.5, spec 6 */
+}
+section h3 {
+    /* Halloween Ex. 4, Spec 3, part 1:
+        adjust font sizes for all headings
+    */
+    font-size: 110%;
+    margin-top:0.8em;
+    margin-bottom: 0.5em;
+    /* same as margin 0.8em 0 0.5em 0; */
+}
+section p {
+    margin-bottom: 0.5em;
+}
+/*
+ Halloween Ex. 4, Specification 5, part 1:
+ Format the links so they're displayed in boldfaced orange
+ whether or not they've been visited
+ */
+
+/* Footer */
+footer {
+    /* Halloween Ex. 6 Spec 1, part 4 */
+
+    clear: both;
+
+
+    border-top: 2px solid black;
+    padding: 15px;
+    background-image: -webkit-linear-gradient(45deg, black 0%, silver 25%, white 100%);
+    background-image: -moz-linear-gradient(45deg, black 0%, silver 25%, white 100%);
+    background-image: -o-linear-gradient(45deg, black 0%, silver 25%, white 100%);
+    background-image: linear-gradient(45deg, black 0%, silver 25%, white 100%);
+}
+footer p {
+    /* Reduce the font size for the footer, adn also center the footer text */
+    font-size: 90%;
+    text-align: center;
+}

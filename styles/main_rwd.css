@@ -1,0 +1,388 @@
+/*
+ * Halloween Ex. 5, Specification 2
+ */
+html {
+    /* background-image: url("../images/bats.gif"); */
+}
+
+/* Halloween Ex. 5, SPecification 1: Format the body of the page
+so its 800px wide, with a white background, black border, shadow, and is centered
+in the browser window.
+ */
+body {
+    /* Halloween Ex. 4, Specification 2:
+    * Set the default font for the document to a sans-serif
+    * font (such as Verdana, Arial, or Helvetica, but others
+    * may be used as well.)
+    */
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    /* Halloween Ex 8, Fluid desktop spec 2, part 1 */
+    max-width: 960px;
+    width: 95%; /* fludi width previously was 800px; */
+    background-color: white;
+    margin: 0 auto;
+    padding: 0;
+    border: 3px solid black;
+    box-shadow: 0 9px 18px 9px;
+}
+/*
+ "reset" the margins and padding for headings and paragraphs
+ this makes it easier for us to control margin and padding
+ for such elements later on in this css file, as part of the
+ "miscellaneous adjustments" made in Ex. 5, Specification 6
+ */
+h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+/* halloween ex 8, fluid desktop spec 2, part 2 and part 3 */
+/* be sure to make the left and right margins and padding
+as as the structural elements fluid.
+if you used pixels for any top or bottom margins (or any padding)
+convert them to ems. In addition if you specify any of the font sizes
+using pixels, convert them to percentages or ems. Where percentages are
+needed, be sure to use a comment to indicate the calcualation used to
+convert from px to % (NOTE: we will put our comments to the right of the affected rules to indicate how the calculations were performed)
+remember that the general forms of the calculations are as follows:
+for conversion to percent:
+(target dimension of element / dimension of the parent) * 100
+
+for conversion to ems:
+(target width of element / width of parent)
+ */
+header {
+    background-image: -webkit-linear-gradient(45deg, white 0%, silver 75%, black 100%);
+    background-image: -moz-linear-gradient(45deg, white 0%, silver 75%, black 100%);
+    background-image: -o-linear-gradient(45deg, white 0%, silver 75%, black 100%);
+    background-image: linear-gradient(45deg, white 0%, silver 75%, black 100%);
+    padding: 0.9375em 1.875% 0.9375em 1.875%; /* right and left: 15 / 800 * 100% */
+                                      /* top and bottom: 15 / 16
+                                        remember that the default 1em font size is 16px
+                                       */
+    /* Halloween Ex. 4, Specification 3, part 1 */
+    /* border-bottom: 2px solid black; */ /* removed per Ex. 7, not needed because of horizontal nav menu */
+}
+
+header img {
+    /* Halloween Ex. 4, Specification 4, part 1a:
+    Float the image to the left
+     */
+    float: left;
+    padding-right: 1.875%;  /* 15px / 800px * 100% */
+    width:10.6%;        /* 85px / 800px * 100% */
+    max-width: 85px;
+    min-width: 40px;
+}
+
+header h2 {
+    /* Halloween Ex. 4, Specification 3 part 1:
+    adjust font sizes for all headings
+     */
+    font-size: 230%;
+    /* Halloween Ex. 4, Specification 4, part 1b:
+    Indent both headings (here, indent the h2)
+     */
+    /* (Note: this style was removed after adding a
+    padding-right: 15px; to the img element
+    that is contained in the header)
+     */
+    /* text-indent: 25px; */
+
+    /* Halloween Ex. 4, Specification 4, part 2:
+    Change the color of the first heading (here, the h2)
+    to orange, then italicize it, and add a black shadow
+     */
+    /* font-style: italic;
+    color: orange;
+    text-shadow: 2px 2px 2px black;
+     */
+    /* Halloween Ex. 5, Step 4: Remove italics, color, and shadow */
+}
+header h3 {
+    /* Halloween Ex. 4, Specification 3, part 1:
+    Adjust font sizes for all headings
+     */
+    font-size: 125%;
+    /* Halloween Ex. 4, Specification4, part 1c:
+    Indent both headings (here, indent the h3
+     */
+    /* text-indent: 25px; */
+    padding-bottom: 15px;
+}
+/* Main */
+/* For ch. 6 most of the styles for main were
+moved to section -- see below
+ */
+
+/* styles for the nav menu */
+/*
+ Start of CSS styles to accompany
+ Halloween Ex 7, spec 1
+ */
+
+/* The styles for the operation of the 2-tier navigation menu */
+#nav_menu {
+    clear: left;
+}
+#nav_menu ul {
+    list-style: none;
+    position: relative;    /* So the first submenu can be positioned within the main menu */
+}
+#nav_menu ul li {
+    float: left;
+    width: 20%;          /* 160 / 800 * 100% */
+}
+#nav_menu ul ul {
+    display: none;         /* Don't display submenu until hover of the li element */
+    position: absolute;
+    top: 100%;             /* Position the submenu at the bottom of the main menu */
+}
+#nav_menu ul ul li {
+    float: none;           /* Display the submenus vertically */
+}
+#nav_menu ul li:hover > ul {
+    display: block;        /* Display the submenu on hover of the li element */
+    width: 100%; /* the second tier of the menu needs to be the width of its container
+    in this case is the li element that we hover over */
+}
+#nav_menu > ul::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* The styles for the formatting of the 2-tier navigation menu */
+#nav_menu ul {
+    margin: 0;
+    padding: 0;
+}
+#nav_menu ul li a {
+    text-align: center;
+    display: block;
+    /* width: 160px; */
+    padding: 0.7em 0;
+    text-decoration: none;
+    background-color: black;
+    color: white;
+}
+/* #nav_menu ul li.lastitem a {
+    width: 160px;               /* leave this here just in case you make this a 3 tier menu */
+/* } */
+#nav_menu ul li a.current {
+    color: darkgray; /* per Halloween ex 7, spec 1 cont'd */
+}
+#nav_menu ul li a:hover, #nav_menu ul li a:focus {
+    background-color: darkslateblue;
+}
+
+
+/*
+ End of CSS styles to accompany
+ Halloween Ex 7, Spec 1
+ */
+
+/* styles for the Sidebar */
+/* Halloween Ex. 5, Spec 2, step 3
+*/
+aside {
+    float: left;
+    width: 20%;            /* 160 / 800 * 100% */
+    padding: 1.25em 0;     /* 20 / 16 */
+    /* padding: 20px 0; */ /* Halloween Ex. 6 Spec 2 Cont'd */
+}
+
+
+
+/* start of Halloween ex 7, spec 2 */
+#nav_list ul {
+    width:68.75%;         /* 110 / 160 * 100% */
+    list-style: none;
+    padding-left: 15%;        /* 1.5 * 16 / 160 * 100% */
+    /* padding-left: 1.5em; */ /* replaces 40px of left padding that chrome adds automatically */
+}
+#nav_list ul li {
+    /* width: 110px; */
+    border: 2px solid black;
+    margin-bottom: 0.5em; /* TRBL */
+}
+#nav_list ul li a {
+    display: block; /* this makes the entire box for each link clickable */
+    font-weight: bold;
+    background-color: silver;
+    text-decoration: none;
+    padding: 0.5em 7.27273% 0.5em 7.27273%;   /* (0.5em * 16px/em) / 110% */
+    color: black;
+}
+/* end of halloween ex7, spec 2 */
+
+/* styles for the section */
+/* Hallowe Ex. 6, Spec 2:
+adjust the margin and padding for the section as necessary
+ */
+section {
+    width: 73.75%;   /* 590px / 800px * 100% */
+    float: right;
+    padding: 1.25em 3.125% 1.5625em 3.125%    /* right and left: 25px/800px * 100% */
+                                        /* top: 20px / 16px/em, bottom: 25px / 16px/em */
+    /* padding: 20px 25px 25px 25px; */ /* copied from misc. adjustment, per Ex. 5, Spec 6 */
+
+}
+section h1 {
+    /* Halloween Ex. 4, Spec 3, Part 1:
+    adjust font sizes for all headings
+     */
+    font-size: 140%;
+    margin-bottom: 0.5em;
+}
+/* Halloween Ex. 4, Spec 3, part 2:
+in addition, format the first letterr of the first heading in the main
+section (here, h1) so its larger than the other letters in the heading
+ */
+section h1:first-letter {
+    font-size: 240%;
+}
+section h2 {
+    /* Halloween Ex. 4, Spec 3, part 1:
+    adjust font sizes for all headings
+     */
+    font-size: 125%;
+    margin: 0.8em 0 0.5em 0; /* misc adjustment, per ex.5, spec 6 */
+}
+section h3 {
+    /* Halloween Ex. 4, Spec 3, part 1:
+        adjust font sizes for all headings
+    */
+    font-size: 110%;
+    margin-top:0.8em;
+    margin-bottom: 0.5em;
+    /* same as margin 0.8em 0 0.5em 0; */
+}
+section p {
+    margin-bottom: 0.5em;
+}
+/*
+    Halloween Ex 8 fluid desktop spec 4, cont'd
+    make both images on the page scalable, and limit in size
+    to the original width as specified in the HTML
+ */
+section img {
+    width: 25.4%;        /* 150px / 590px * 100% */
+    max-width: 150px;
+    min-width: 40px;
+}
+
+
+
+
+/*
+ Halloween Ex. 4, Specification 5, part 1:
+ Format the links so they're displayed in boldfaced orange
+ whether or not they've been visited
+ */
+
+/* Footer */
+footer {
+    /* Halloween Ex. 6 Spec 1, part 4 */
+    clear: both;
+    border-top: 2px solid black;
+    padding: 0.9375em 1.875% 0.9375em 1.875%; /* top and bottom: 15px / 16px/em */
+                                          /* right and left : 15px / 800px * 100% */
+    /* padding: 15px; */
+    background-image: -webkit-linear-gradient(45deg, black 0%, silver 25%, white 100%);
+    background-image: -moz-linear-gradient(45deg, black 0%, silver 25%, white 100%);
+    background-image: -o-linear-gradient(45deg, black 0%, silver 25%, white 100%);
+    background-image: linear-gradient(45deg, black 0%, silver 25%, white 100%);
+}
+footer p {
+    /* Reduce the font size for the footer, adn also center the footer text */
+    font-size: 90%;
+    text-align: center;
+}
+/* Halloween Ex 8, phone landscpae spec 2,  cont'd:
+    hide the mobile menu i.e. the slicknav menu when the
+    browser is in desktop or tablet landscpae mode
+ */
+#mobile_menu {
+    display: none;
+}
+
+/* halloween ex 8 , tablet portrait sepc 2:
+    add a media query for screens with a max-width of 800 pixels...
+ */
+@media only screen and (max-width:800px) {
+
+    html {
+        background-image: none;  /* remove background image */
+    }
+    body {
+        font-size: 90%;  /* reduce font size to 90% */
+        box-shadow: none;  /* remove shadow */
+    }
+} /* end of tablet media portrait query */
+
+
+/* Halloween Ex 8, phone landscpae spec 1:
+    add a media query with a max-width of 767px
+ */
+@media only screen and (max-width: 767px) {
+    /* the styles you choose to put here are implemented
+        as needed to make the page "look right" on the target device
+     */
+    /* phone landscape spec 2 cont'd:
+        show the mobile menu and hid the original desktop version
+        of the horizontal nav menu
+     */
+    #nav_menu {
+        display: none; /* hide desktop horizontal nav menu */
+    }
+    #mobile_menu {
+        display: block; /* ... and display a slicknav menu in its place */
+    }
+
+    header h2 {
+        font-size: 200%;
+    }
+    section {
+        width: 90%;
+        float: none;  /* this is important so that the section and aside
+             are stacked on top of each other on smaller devices */
+        padding-left: 5%;
+        padding-bottom: 0.5em;
+    }
+    aside {
+        width: 90%;  /* same width as section because we are now effecively
+        using a one column layout on smaller devices */
+        float: none;
+        padding: 0 5% 1em 5%;
+    }
+    #nav_list ul {
+        width: 50%;
+        padding-left: 25%;
+        text-align: center;
+    }
+    #nav_list ul li {
+        padding-left: 0;
+    }
+} /* end of phone landscape media query */
+
+/* Halloween Ex 8 phone protrait spec:
+    add a media query that will be applied to screens
+    with a maximum width of 479 px
+ */
+@media only screen and (max-width: 479px){
+    header h2 {
+        font-size: 100%; /* reduced form 230% and again to 100% */
+    }
+    header h3 {
+        font-size: 115%; /* reduced from 125% */
+    }
+    section h1:first-letter {
+    font-size: 180% /* reduced from 240% */
+    }
+}
+
+
+
+
